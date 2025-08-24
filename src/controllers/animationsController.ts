@@ -190,7 +190,7 @@ export const getAllAnimations = async (req: AuthRequest, res: Response) => {
             where: {
                 OR: [
                     { userId: null },        
-                    { userId: userId }, 
+                    { userId: userId ?? null }, 
                 ],
             },
             orderBy: { createdAt: "desc" },
