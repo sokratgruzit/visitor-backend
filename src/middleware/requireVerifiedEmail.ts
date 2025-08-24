@@ -3,13 +3,15 @@ import { Request, Response, NextFunction } from "express";
 interface AuthRequest extends Request {
     user?: {
         id: number;
-        email: string;
-        name?: string | null;
-        password: string;
-        isActive: boolean;
-        emailVerified: boolean;
-        createdAt: Date;
-        updatedAt: Date;
+		email: string;
+		name?: string | null;
+		password: string;
+		subscriptionStatus?: string;
+		yooPaymentId?: string;
+		refreshToken?: string | null;
+		emailVerified: boolean;
+		createdAt: Date;
+		updatedAt: Date;
     };
 }
 

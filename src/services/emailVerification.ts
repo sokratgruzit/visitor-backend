@@ -8,7 +8,8 @@ interface UserType {
     email: string;
     name?: string | null;
     password: string;
-    isActive: boolean;
+    subscriptionStatus?: string;
+    yooPaymentId?: string;
     refreshToken?: string | null;
     emailVerified: boolean;
     createdAt: Date;
@@ -21,9 +22,9 @@ export async function sendVerificationEmail(user: UserType) {
 
     await prisma.emailVerification.create({
         data: {
-        token,
-        userId: user.id,
-        expiresAt: expires,
+            token,
+            userId: user.id,
+            expiresAt: expires,
         },
     });
 

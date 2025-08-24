@@ -12,13 +12,17 @@
   "description": "Backend for constructor app",
   "dependencies": {
     "@prisma/client": "^6.12.0",
+    "@supabase/supabase-js": "^2.55.0",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "date-fns": "^4.1.0",
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "ms": "^2.1.3",
+    "node-fetch": "^3.3.2",
     "nodemailer": "^7.0.5",
     "prisma": "^6.12.0"
   },

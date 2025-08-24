@@ -11,7 +11,9 @@ export interface AuthRequest extends Request {
         email: string;
         name?: string | null;
         password: string;
-        isActive: boolean;
+        subscriptionStatus?: string;
+        subscriptionEndAt?: Date | null;
+        yooPaymentId?: string | null;
         refreshToken?: string | null;
         emailVerified: boolean;
         createdAt: Date;
@@ -35,8 +37,8 @@ export async function authMiddleware(
         if (!payload.userId) throw new Error("Некорректный токен");
 
         req.userId = payload.userId;
-        
-        // Загружаем пользователя из базы, чтобы заполнить req.user для последующих middleware
+
+        // Загружаем пользователя из базы
         const user = await prisma.user.findUnique({
             where: { id: payload.userId },
             select: {
@@ -44,8 +46,11 @@ export async function authMiddleware(
                 email: true,
                 name: true,
                 password: true,
-                isActive: true,
+                subscriptionStatus: true,
+                subscriptionEndAt: true,
+                yooSubscriptionId: true,
                 emailVerified: true,
+                yooPaymentId: true,
                 createdAt: true,
                 updatedAt: true,
             },
@@ -53,8 +58,20 @@ export async function authMiddleware(
 
         if (!user) return res.status(401).json({ message: "Пользователь не найден" });
 
-        req.user = user;
-        
+        // Ленивое обновление подписки
+        if (user.subscriptionStatus === "active" && user.subscriptionEndAt && user.subscriptionEndAt < new Date()) {
+            await prisma.user.update({
+                where: { id: user.id },
+                data: { subscriptionStatus: "inactive" },
+            });
+            user.subscriptionStatus = "inactive";
+        }
+
+        req.user = {
+            ...user,
+            subscriptionStatus: user.subscriptionStatus ?? undefined,
+        };
+
         next();
     } catch {
         return res.status(401).json({ message: "Неверный или просроченный токен" });
