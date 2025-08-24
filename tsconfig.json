@@ -9,8 +9,9 @@
     "resolveJsonModule": true,
     "moduleResolution": "node",
     "outDir": "dist",
+    "rootDir": "src",
     "strictPropertyInitialization": false
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
