@@ -14,7 +14,10 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-	origin: "https://visitor-backend-i594.onrender.com", // <— точно укажи адрес фронта
+	origin: [
+		"https://visitor-ten.vercel.app",
+		"https://visitor-landing-five.vercel.app"
+	], // <— точно укажи адрес фронта
 	credentials: true,               // <— разрешить куки и заголовки авторизации
 }));
 app.use(express.json({ limit: "10mb" }));
