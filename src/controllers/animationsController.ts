@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { prisma } from "../../prisma/client";
+import { prisma } from "../client";
 import { supabase } from "../services/supabaseClient";
 
 interface AuthRequest extends Request {

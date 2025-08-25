@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import { prisma } from "../../prisma/client";
+import { prisma } from "../client";
 
 const ACCESS_SECRET = process.env.JWT_ACCESS_SECRET || "secret_access";
 

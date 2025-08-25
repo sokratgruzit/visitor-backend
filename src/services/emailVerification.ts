@@ -1,7 +1,7 @@
 import crypto from "crypto";
 import nodemailer from "nodemailer";
 
-import { prisma } from "../../prisma/client";
+import { prisma } from "../client";
 
 interface UserType {
     id: number;
