@@ -261,7 +261,7 @@ export const getMyLanding = async (req: AuthRequest, res: Response) => {
 		});
         
 		if (!landing) {
-			return res.status(404).json({ success: false, message: "Лендинг не найден" });
+			return res.status(200).json({ success: false, message: "Лендинг не найден" });
 		}
 
 		res.status(200).json({ success: true, data: landing.data, slug: landing.slug });
