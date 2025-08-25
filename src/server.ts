@@ -14,7 +14,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-	origin: "http://localhost:5173", // <— точно укажи адрес фронта
+	origin: "https://visitor-backend-i594.onrender.com", // <— точно укажи адрес фронта
 	credentials: true,               // <— разрешить куки и заголовки авторизации
 }));
 app.use(express.json({ limit: "10mb" }));
@@ -30,5 +30,5 @@ app.use("/api/animations", animationsRouter);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-	console.log(`Server started on http://localhost:${PORT}`);
+	console.log(`Server started on https://visitor-backend-i594.onrender.com:${PORT}`);
 });
