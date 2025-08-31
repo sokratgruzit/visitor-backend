@@ -16,7 +16,8 @@ const app = express();
 app.use(cors({
 	origin: [
 		"https://visitor-ten.vercel.app",
-		"https://visitor-landing-five.vercel.app"
+		"https://visitor-landing-five.vercel.app",
+		"http://localhost:5173"
 	], // <— точно укажи адрес фронта
 	credentials: true,               // <— разрешить куки и заголовки авторизации
 }));
