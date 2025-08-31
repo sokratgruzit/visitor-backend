@@ -105,4 +105,5 @@ npm run dev
 
 👨‍💻 Author: Tavadze David
 📧 Email: tavadzed@gmail.com
+💬 Telegram: [@black_sokrat](https://t.me/black_sokrat)
 🌍 LinkedIn: [linkedin.com/in/david-tavadze-19361753/](https://www.linkedin.com/in/david-tavadze-19361753)
