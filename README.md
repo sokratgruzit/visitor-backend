@@ -34,6 +34,14 @@ Built with **Node.js, Express, and PostgreSQL**, it ensures scalability, securit
 
 ---
 
+## 🌐 Live Demo
+
+Try the **Visitor Platform** in action:
+
+[🚀 Visit Demo](https://visitor-ten.vercel.app/register)
+
+> Note: This is the public demo link for testing registration, authentication, and landing page features.
+
 ## 🔌 API Endpoints
 
 <details>
